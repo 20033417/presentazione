@@ -45,6 +45,41 @@
             margin-bottom: 0.5em;
         }
 
+        
+nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: #f4f4f4;
+        }
+
+        nav ul li img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
         /* Stili specifici per dispositivi con larghezza inferiore a 600px */
         @media screen and (max-width: 600px) {
             img {
@@ -60,11 +95,14 @@
 </head> <!-- Fine del tag head -->
 <body> <!-- Inizio del tag body -->
 
-    <header>
-        <h1>Davide Spatola</h1>
-        <p>Curriculum Vitae <a href="https://github.com/20033417/presentazione/blob/main/Curriculum.pdf" download>qui</a>.</p>
-    </header>
-
+    <nav>
+        <ul>
+            <li><img src="/IMG_20240205_221120_760.jpg" alt="Immagine di Davide Spatola"></li>
+            <li><a href="https://github.com/20033417/presentazione/blob/main/Curriculum.pdf" download>Curriculum Vitae</a></li>
+            <li><a href="https://github.com/20033417">Progetti</a></li>
+            <li><a href="mailto:davide.sp0@proton.me">Contatti</a></li>
+        </ul>
+    </nav>
     <section>
         <h2>Dati Personali</h2>
 
