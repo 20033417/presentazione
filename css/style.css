@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap");
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #0c0c0c;
@@ -28,6 +29,16 @@ body {
 
 .layout_padding-bottom {
   padding-bottom: 90px;
+}
+
+.icon {
+  vertical-align: middle; /* per allineare l'icona verticalmente con il testo */
+  width: 2em; /* imposta la larghezza dell'icona alla stessa larghezza del carattere */
+  height: 2em; /* imposta l'altezza dell'icona alla stessa altezza del carattere */
+}
+
+.rounded-image {
+  border-radius: 10px; /* Imposta il raggio di curvatura dei bordi */
 }
 
 .heading_container {
@@ -384,6 +395,9 @@ a:focus {
           align-items: center;
 }
 
+
+
+
 .slider_section .carousel-indicators li {
   background-color: #ffffff;
   width: 12px;
@@ -401,6 +415,34 @@ a:focus {
 .service_section {
   position: relative;
 }
+
+.cv_section {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 1em;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: black;
+
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+
+
+}
+
+.contact-button {
+  width: 150px; /* Imposta la larghezza del pulsante */
+  height: 50px; /* Imposta l'altezza del pulsante */
+  font-size: 16px; /* Imposta la dimensione del testo nel pulsante */
+}
+
+#contact-image {
+  max-width: 100%; /* Assicura che l'immagine non superi mai la larghezza del suo contenitore */
+  max-height: 100%; /* Assicura che l'immagine non superi mai l'altezza del suo contenitore */
+}
+
 
 .service_section .box {
   display: -webkit-box;
