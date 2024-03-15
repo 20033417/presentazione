@@ -37,7 +37,11 @@ body {
   height: 2em; /* imposta l'altezza dell'icona alla stessa altezza del carattere */
 }
 
+
 .rounded-image {
+  width: 100%; /* Occupa tutta la larghezza del contenitore */
+  height: auto; /* Imposta l'altezza in modo proporzionale alla larghezza */
+
   border-radius: 10px; /* Imposta il raggio di curvatura dei bordi */
 }
 
