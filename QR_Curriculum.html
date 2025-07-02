@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Davide Spatola</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Stile ispirato a Designers Italia --- */
+        :root {
+            --primary-color: #0066cc;
+            --dark-color: #333333;
+            --light-gray-color: #f4f4f4;
+            --border-color: #e0e0e0;
+            --text-color: #5c6f82;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Titillium Web', sans-serif;
+            background-color: var(--light-gray-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .container {
+            display: flex;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Colonna Sinistra (Sidebar) --- */
+        .sidebar {
+            width: 35%;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-right: 1px solid var(--border-color);
+        }
+        
+        .sidebar h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        
+        .contact-info ul {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info li svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            fill: var(--primary-color);
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .skills-list, .languages-list {
+            list-style: none;
+        }
+
+        .skills-list li, .languages-list li {
+            margin-bottom: 10px;
+        }
+        
+        .qr-code {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .qr-code img {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .qr-code p {
+            font-size: 0.8em;
+            color: var(--text-color);
+            margin-top: 5px;
+        }
+
+        /* --- Colonna Destra (Contenuto Principale) --- */
+        .main-content {
+            width: 65%;
+            padding: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .header h3 {
+            font-size: 1.3em;
+            font-weight: 400;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .main-content h2 {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section p {
+             color: var(--text-color);
+        }
+        
+        .job, .project, .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .job-title, .project-title, .degree {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .company, .education-institution {
+            font-weight: 400;
+            color: var(--primary-color);
+        }
+        
+        .date {
+            font-size: 0.9em;
+            color: var(--text-color);
+            font-style: italic;
+        }
+        
+        .job-description, .project-description {
+            margin-top: 10px;
+            list-style-position: outside;
+            padding-left: 20px;
+        }
+        
+        .job-description li, .project-description li {
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+        
+        .tech-tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--light-gray-color);
+            color: var(--text-color);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        /* --- Stile per la stampa e schermi piccoli --- */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin: 0;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+                border-right: none;
+            }
+        }
+        
+        @media print {
+            body {
+                background-color: #fff;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+            .sidebar {
+                background-color: #fff;
+            }
+            a {
+                text-decoration: none;
+                color: var(--dark-color);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <main class="main-content">
+            
+            <div class="qr-code">
+                <!-- Sostituisci "placeholder.png" con il percorso del tuo QR code -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://20033417.github.io/presentazione/curriculum.html" alt="QR Code per il mio sito web">
+                <p>Scansionami oppure <a href ="https://20033417.github.io/presentazione/curriculum.html" target="_blank">clicca qui</a></p>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
