@@ -202,6 +202,15 @@
                 width: 100%;
                 border-right: none;
             }
+            
+            /* --- MODIFICA PER IL RIORDINO SU MOBILE --- */
+            .main-content {
+                order: 1; /* Il contenuto principale viene mostrato per primo */
+            }
+            .sidebar {
+                order: 2; /* La sidebar (con contatti) viene mostrata per seconda */
+            }
+            /* --- FINE MODIFICA --- */
         }
         
         @media print {
@@ -225,7 +234,6 @@
 <body>
 
     <div class="container">
-        <!-- ================== COLONNA SINISTRA ================== -->
         <aside class="sidebar">
             <section class="contact-info">
                 <h2>Contatti</h2>
@@ -274,13 +282,11 @@
             </section>
             
             <div class="qr-code">
-                <!-- Sostituisci "placeholder.png" con il percorso del tuo QR code -->
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://20033417.github.io/presentazione/service.html" alt="QR Code per il mio sito web">
                 <p>Scansionami per visitare i progetti</p>
             </div>
         </aside>
 
-        <!-- ================== COLONNA DESTRA ================== -->
         <main class="main-content">
             <header class="header">
                 <h1>Davide Spatola</h1>
@@ -321,7 +327,7 @@
                         <li>Ottimizzazione e refactoring del codice iniziale di base.</li>
                         <li>Implementazione di nuovi moduli e funzionalità nella nativa applicazione.</li>
                         <li>Collaborazione con il team di medici.</li>
-                        <li>Breve descrizione: L'applicazione monitora le operazioni effettuate dai medici durante le fasi di rianimazione neonatale. L'applicazione permette di valutare i medici al termine delle simulazioni facendo riferimento ad una "Traccia Gold" come sistema knowledge base fornita dal personale medico. La distanza è calcolata utilizzando delle librerie presenti presso il dipartimento di innovazione tecnologica ed attraverso l'ausilio di metodologie di intelligenza artificiale permette di mostrare attraverso una dashboard i risultati di ogni singola traccia e la loro comparazione. Il progetto è stato supportato dal Tomcat Server, pubblicato sul playstore. Utilizzo di vari linguaggi di programmazione: Java, Kotlin, SQL.  </li>
+                        <li>Breve descrizione: L'applicazione monitora le operazioni effettuate dai medici durante le fasi di rianimazione neonatale. L'applicazione permette di valutare i medici al termine delle simulazioni facendo riferimento ad una "Traccia Gold" come sistema knowledge base fornita dal personale medico. La distanza è calcolata utilizzando delle librerie presenti presso il dipartimento di innovazione tecnologica ed attraverso l'ausilio di metodologie di intelligenza artificiale permette di mostrare attraverso una dashboard i risultati di ogni singola traccia e la loro comparazione. Il progetto è stato supportato dal Tomcat Server e pubblicato sul playstore. Utilizzo di vari linguaggi di programmazione: Java, Kotlin, SQL.  </li>
                         
                     </ul>
                 </div>
@@ -332,7 +338,7 @@
                 <h2>Istruzione</h2>
                 <div class="education-item">
                     <p><span class="degree">LM18 - Laurea Magistrale in Intelligenza Artificiale </span></p>
-                    <p class="education-institution">Università</p>
+                    <p class="education-institution">Università del Piemonte Orientale</p>
                     <p class="date">2024 - In corso</p>
                 </div>
                  <div class="education-item">
@@ -347,8 +353,6 @@
                 </div>
             </section>
             
-
-
             <section class="section projects">
                 <h2>Progetti Personali</h2>
                 <div class="project">
@@ -380,48 +384,34 @@
                     <p class="date">Data di pubblicazione: January 2025 </p>
                 </div>
 
-<h2>Corsi di formazione</h2>
-
-                     <p><span class="degree">Amministrazione e struttura degli enti locali ed informatica giuridica</span></p>
-
+                <h2>Corsi di formazione</h2>
                 <div class="education-item">
-               <p>     Data Inizio : 17/03/2025</p>
-                <p> Data Fine: In corso</p>
-                <p>   Ente Organizzatore: Omniavis</p>
-                <p>   Indirizzo: Bollate</p>
-                <p>Tipologia: Corso di formazione obbligatoria</p>
-
-                <p>Durata in ore: 40</p>
-            
+                     <p><span class="degree">Amministrazione e struttura degli enti locali ed informatica giuridica</span></p>
+                    <p>Data Inizio : 17/03/2025</p>
+                    <p>Data Fine: In corso</p>
+                    <p>Ente Organizzatore: Omniavis</p>
+                    <p>Indirizzo: Bollate</p>
+                    <p>Tipologia: Corso di formazione obbligatoria</p>
+                    <p>Durata in ore: 40</p>
                 </div>
             
-                                <div class="education-item">
+                <div class="education-item">
+                     <p><span class="degree"> Smart city: dove innovazione e sostenibilità si incontrano</span></p>
+                    <p>Data Inizio e fine: 07/05/2025</p>
+                    <p>Ente Organizzatore: Politecnico di Milano</p>
+                    <p>Indirizzo: Via Giovanni Durando 10</p>
+                    <p>Tipologia: Congresso/convegno di aggiornamento attinente al profilo</p>
+                    <p>Durata in ore: 3</p>
+                    <p>Competenze maturate/consolidate: Aggiornamento di procedure e validazione dei piani adottati in vista di asseverazione, approfondimento di ai e del gemello digitale</p>
+                </div>
 
-                                 <p><span class="degree"> Smart city: dove innovazione e sostenibilità si incontrano</span></p>
+                <div class="education-item">
+                    <p><span class="degree">Corso Anti Corruzione</span></p>
+                    <p>Ente Organizzatore: Comune di Bollate</p>
 
-                <p>   Data Inizio e fine: 07/05/2025</p>
-              <p>      Ente Organizzatore: Politecnico di Milano</p>
-               <p>     Indirizzo: Via Giovanni Durando 10</p>
-               <p>     Tipologia: Congresso/convegno di aggiornamento attinente al profilo</p>
-                 <p>   Durata in ore: 3</p>
-
-                <p>    Competenze maturate/consolidate: Aggiornamento di procedure e validazione dei piani adottati in vista di asseverazione, approfondimento di ai e del gemello digitale</p>
-
-            </div>
-
-                                <div class="education-item">
-
-                        <p><span class="degree">
-            Corso Anti Corruzione</span></p>
-              <p>      Ente Organizzatore: Comune di Bollate</p>
-
-              <p><span class="degree">
-            Corso Sulla Privacy</span></p>
-              <p>      Ente Organizzatore: Comune di Bollate</p>
-</div  >
-
-
-
+                    <p><span class="degree">Corso Sulla Privacy</span></p>
+                    <p>Ente Organizzatore: Comune di Bollate</p>
+                </div>
             </section>
         </main>
     </div>
