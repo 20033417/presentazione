@@ -98,12 +98,14 @@
         }
         
         .qr-code img {
-            width: 120px;
-            height: 120px;
+            /* Dimensione intermedia per il QR code */
+            width: 150px; 
+            height: 150px;
         }
         
         .qr-code p {
-            font-size: 0.8em;
+            /* Dimensione intermedia per il testo del QR code */
+            font-size: 1em; 
             color: var(--text-color);
             margin-top: 5px;
         }
@@ -219,6 +221,15 @@
                 text-decoration: none;
                 color: var(--dark-color);
             }
+            .qr-code img {
+                /* Dimensione più grande per la stampa */
+                width: 200px; 
+                height: 200px;
+            }
+            .qr-code p {
+                /* Dimensione più grande per il testo del QR code in stampa */
+                font-size: 1.1em; 
+            }
         }
     </style>
 </head>
@@ -229,8 +240,7 @@
         <main class="main-content">
             
             <div class="qr-code">
-                <!-- Sostituisci "placeholder.png" con il percorso del tuo QR code -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://20033417.github.io/presentazione/curriculum.html" alt="QR Code per il mio sito web">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://20033417.github.io/presentazione/curriculum.html" alt="QR Code per il mio sito web">
                 <p>Scansionami oppure <a href ="https://20033417.github.io/presentazione/curriculum.html" target="_blank">clicca qui</a></p>
             </div>
         </main>
