@@ -1,669 +1,982 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/logo.jpg" type="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Onexus - Sviluppo software e soluzioni digitali innovative">
+  <meta name="author" content="Onexus">
+  
+  <title>Onexus - Soluzioni Digitali Innovative</title>
 
-  <title> Onexus </title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary-color: #64748b;
+      --accent-color: #06b6d4;
+      --success-color: #10b981;
+      --warning-color: #f59e0b;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+      --background-light: #f8fafc;
+      --white: #ffffff;
+      --border-light: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
 
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
-  <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
 
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
 
+    ::-webkit-scrollbar-track {
+      background: var(--background-light);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-color);
+      border-radius: 3px;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+    }
+
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color) !important;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      color: var(--text-dark) !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem !important;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-color) !important;
+      background: rgba(37, 99, 235, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" /></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23grad)"/><circle cx="700" cy="300" r="150" fill="url(%23grad)"/><circle cx="400" cy="700" r="120" fill="url(%23grad)"/></svg>') no-repeat center center;
+      background-size: cover;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn-primary-modern {
+      background: var(--white);
+      color: var(--primary-color);
+      border: none;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary-modern:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      color: var(--primary-color);
+    }
+
+    .btn-outline-modern {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      margin-left: 1rem;
+    }
+
+    .btn-outline-modern:hover {
+      background: var(--white);
+      color: var(--primary-color);
+      border-color: var(--white);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      font-size: 1.125rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Service Cards */
+    .service-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-light);
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .service-icon i {
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .service-card h5 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* About Section */
+    .about-section {
+      background: var(--background-light);
+    }
+
+    .about-image {
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.5rem 0;
+      color: var(--text-light);
+    }
+
+    .feature-list li i {
+      color: var(--success-color);
+      margin-right: 0.5rem;
+    }
+
+    /* Why Choose Us */
+    .why-card {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .why-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .why-icon i {
+      font-size: 1.5rem;
+      color: var(--white);
+    }
+
+    /* Team Section */
+    .team-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .team-image {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover .team-image img {
+      transform: scale(1.1);
+    }
+
+    .team-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .team-info h5 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .team-info p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--background-light);
+      border-radius: 8px;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Footer social links specific styles */
+    .footer .social-links a {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .footer .social-links a:hover {
+      background: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text-dark);
+      color: var(--white);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer h5 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .btn-outline-modern {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+
+    /* Animation classes */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in-up.aos-animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <body>
 
-  <div class="hero_area">
-
-    <div class="hero_bg_box">
-      <div class="bg_img_box">
-        <img src="images/hero-bg.png" alt="">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Onexus</a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Servizi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Chi Siamo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#why">Perché Sceglierci</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contatti</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              Onexus
-            </span>
-          </a>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="hero-content">
+            <h1>Soluzioni Digitali <br><span style="color: #f093fb;">Innovative</span></h1>
+            <p>Sviluppiamo software eleganti e funzionali per il tuo business. Trasforma le tue idee in realtà digitali con il nostro team di esperti.</p>
+            <div class="hero-buttons">
+              <a href="#services" class="btn-primary-modern">Scopri i Servizi</a>
+              <a href="#contact" class="btn-outline-modern">Contattaci</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+          <div class="text-center">
+            <div style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);">
+              <i class="fas fa-code" style="font-size: 6rem; color: rgba(255,255,255,0.8);"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>I nostri <span style="color: var(--primary-color);">Servizi</span></h2>
+        <p>Offriamo una vasta gamma di servizi per soddisfare le esigenze del tuo business digitale.</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h5>Sviluppo Web</h5>
+            <p>Realizziamo siti web moderni e responsive, ottimizzati per le performance e la user experience. Dalla landing page all'e-commerce completo.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h5>App Mobile</h5>
+            <p>Sviluppiamo applicazioni native e cross-platform per iOS e Android, con focus su usabilità e performance ottimali.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h5>Sicurezza Dati</h5>
+            <p>Implementiamo soluzioni di sicurezza avanzate per proteggere i tuoi dati e garantire la conformità alle normative.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h5>E-commerce</h5>
+            <p>Creiamo piattaforme di vendita online complete, con gestione inventario, pagamenti sicuri e analytics avanzati.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h5>Software Gestionali</h5>
+            <p>Sviluppiamo sistemi gestionali personalizzati per ottimizzare i processi aziendali e migliorare la produttività.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h5>Cloud Solutions</h5>
+            <p>Migrazione e gestione di infrastrutture cloud scalabili, sicure e ottimizzate per le performance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html"> Chi Siamo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="service.html">Servizi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="why.html">Perchè sceglierci</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="team.html">Il Team</a>
-              </li>
-             
-              </form>
+  <!-- About Section -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="about-image">
+            <div style="background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); height: 400px; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-laptop-code" style="font-size: 6rem; color: white; opacity: 0.8;"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="section-title text-start">
+            <h2>Chi <span style="color: var(--primary-color);">Siamo</span></h2>
+            <p>Siamo un team di sviluppatori software specializzati in soluzioni innovative e tecnologie all'avanguardia.</p>
+          </div>
+          
+          <div class="mb-4">
+            <h5 style="color: var(--text-dark); font-weight: 600;">La nostra missione</h5>
+            <p style="color: var(--text-light);">Trasformare le idee in soluzioni digitali concrete, supportando le aziende nel loro percorso di crescita tecnologica con competenza e innovazione.</p>
+          </div>
+          
+          <div class="mb-4">
+            <h5 style="color: var(--text-dark); font-weight: 600;">Competenze Tecniche</h5>
+            <ul class="feature-list">
+              <li><i class="fas fa-check"></i> Linguaggi: C, C++, Java, PHP, Kotlin, Swift, JavaScript</li>
+              <li><i class="fas fa-check"></i> Frontend: HTML5, CSS3, React, Vue.js</li>
+              <li><i class="fas fa-check"></i> Backend: Node.js, Express, Laravel</li>
+              <li><i class="fas fa-check"></i> Database: SQL, NoSQL, MongoDB, SQLite</li>
+              <li><i class="fas fa-check"></i> Cloud: AWS, Google Cloud, Azure</li>
             </ul>
           </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Sito web<br>
-                      Statico e dinamico
-                    </h1>
-                    <p>
-                      Crea il tuo sito web per una presentazione o estendilo per gestire le prenotazioni o gli abbonamenti
-                    </p>
-                    <div class="btn-box">
-                      <a href="./service.html" class="btn1">
-                        Scopri di più           
-                                 </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="images/img-4.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Sviluppo <br>
-                      Software
-                    </h1>
-                    <p>
-                      Realizziamo software eleganti e funzionali per il tuo business. Approfitta del nostro know-how per distinguerti dalla concorrenza.
-                    </p>
-                    <div class="btn-box">
-                      <a href="./service.html" class="btn1">
-                        Scopri di più
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="images/img-3.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Applicazioni <br>
-                      Web / Mobile
-                    </h1>
-                    <p>
-                      Crea il tuo sito web ed un'applicazione professionale ad hoc per la tua azienda.
-                    </p>
-                    <div class="btn-box">
-                      <a href="./service.html" class="btn1">
-                        Scopri di più
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Gestionale<br>
-                    </h1>
-                    <p>
-                      Ottieni informazioni dettagliate dal software sui dati aziendali per il supporto alle decisioni.
-                    </p>
-                    <div class="btn-box">
-                      <a href="./service.html" class="btn1">
-                        Scopri di più           
-                                 </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="images/img-2.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-         
-
-        </div>
-        <ol class="carousel-indicators">
-          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-          <li data-target="#customCarousel1" data-slide-to="1"></li>
-          <li data-target="#customCarousel1" data-slide-to="2"></li>
-          <li data-target="#customCarousel1" data-slide-to="3"></li>
-
-        </ol>
-      </div>
-
-    </section>
-    <!-- end slider section -->
-  </div>
-
-
-  <!-- service section -->
-
-  <section class="service_section layout_padding">
-    <div class="service_container">
-      <div class="container ">
-        <div class="heading_container heading_center">
-          <h2>
-            I nostri <span>Servizi</span>
-          </h2>
-          <p>
-            Offriamo una vasta gamma di servizi per soddisfare le esigenze del tuo sito web.
-          </p>
-        </div>
-        <div class="row">
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/img-6.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Sviluppo Web
-                </h5>
-                <p>
-                  Realizziamo siti web su misura, personalizzati per le tue esigenze e ottimizzati per il successo online.
-
-                </p>
-                <a href="/service.html">
-                  Scopri di più
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/img-7.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Sicurezza dei dati
-                </h5>
-                <p>
-                  Mantieni al sicuro i tuoi dati con la possibilità di visualizzarli per accedere alle statistiche
-                 
-                </p>
-                <a href="/service.html">
-                  Scopri di più
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/img-8.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  E-commerce
-                </h5>
-                <p>
-                  Realizziamo soluzioni di e-commerce su misura, adatte alle tue esigenze di vendita online.
-
-                </p>
-                <a href="/service.html">
-                  Scopri di più
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="btn-box">
-          <a href="/service.html">
-            Scopri di più
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end service section -->
-
-
-  <!-- about section -->
-
-  <section class="about_section layout_padding">
-    <div class="container  ">
-      <div class="heading_container heading_center">
-        <h2>
-          Chi <span>Siamo</span>
-        </h2>
-        <p>
-          Sviluppatori software con conoscenze di algoritmi di programmazione e tecniche avanzate di progettazione ed implementazione del software da zero.
-
-        </p>
-      </div>
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
-            <img src="images/img-5.jpeg" alt="" class="rounded-image">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <h3>
-              Noi siamo Onexus
-            </h3>
-            <p>
-              Un’azienda IT all’avanguardia nel settore delle soluzioni tecnologiche. L'obiettivo è fornire servizi di alta qualità, sviluppare applicazioni innovative e supportare i nostri clienti nel raggiungimento dei loro obiettivi digitali.
-              <h5>                
-              Competenze Tecniche:
-                </h5>
-            </p>
-            <p>               
-              Linguaggi di Programmazione: C, C++, Java, PHP, Kotlin, Swift  </p> <p>               
-              Front-end Development: HTML5, CSS3, JavaScript                 </p> <p>               
-              Back-end Development: Node.js, Express                         </p> <p>               
-              Database Management: SQL, NoSQL (MongoDB, SQLite)              </p> <p>               
-              Framework: React                            
-            </p>
-
-        <h5>  Progetti Realizzati:</h5>
-
-          <p>
-              Pubblicazione di Articoli di Libri (Commerciale-Informativo): Abbiamo sviluppato una piattaforma per la pubblicazione e la gestione di articoli di libri. I nostri clienti possono condividere contenuti informativi e promuovere le loro opere letterarie.
-          </p>
-          <p>
-              Progetto Shop Mobile (Commerciale): Abbiamo creato un’applicazione mobile per un negozio online, consentendo agli utenti di esplorare prodotti, effettuare acquisti e ricevere notifiche personalizzate.
-           </p>
-          <p>
-              Servizio di Parcheggio (Commerciale): Abbiamo implementato un sistema di prenotazione e gestione dei parcheggi, semplificando la vita dei conducenti e ottimizzando l’utilizzo degli spazi disponibili.
-          </p>
-          <p>
-              Mobile App Medica (Medico-sanitario): In collaborazione con professionisti medici, abbiamo sviluppato un’app per la gestione delle cartelle cliniche, la prenotazione di visite e la comunicazione tra pazienti e medici.
-          </p>
-            <a href="">
-              Scopri di più
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end about section -->
-
-  <!-- why section -->
-
-  <section class="why_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Perchè <span>Sceglierci</span>
-        </h2>
-      </div>
-      <div class="why_container">
-        <div class="box">
-          <div class="img-box">
-            <img src="images/img-9.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Expert Management
-            </h5>
-            <p>
-              Siamo un team di professionisti appassionati di tecnologia, sempre pronti a mettere le nostre competenze al tuo servizio.
-
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/img-10.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Esperienza
-            </h5>
-            <p>
-              Con anni di esperienza nel settore, garantiamo soluzioni di qualità.
-
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/w3.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-               Affidabilità
-
-            </h5>
-            <p>
-              Puoi contare su di noi per offrirti il miglior servizio possibile, sempre.
-
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/w4.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Supporto
-            </h5>
-            <p>
-              Il nostro team è attivo 24/7, per rispondere a ogni tua domanda e aiutarti nelle tue esigenze.
-
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          Scopri di più
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- end why section -->
-
-  <!-- team section -->
-  <section class="team_section layout_padding">
-    <div class="container-fluid">
-      <div class="heading_container heading_center">
-        <h2 class="">
-          Il nostro <span> Team</span>
-        </h2>
-      </div>
-
-      <div class="team_container">
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/Foto.png" class="img1" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Davide Spatola
-                </h5>
-                <p>
-                  Computer Scientist
-                </p>
-              </div>
-              <div class="social_box">
-                <a href="#">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <!--  <a href="#">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>-->
-                <a href="https://www.linkedin.com/in/davide-spatola-169524204?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.instagram.com/rigel.ware?igsh=NGJ6dmprcGNseWM0">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-                <a href="#">
-                 <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
           
-          
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end team section -->
-
-
-  <!-- client section -->
-
-  <section class="client_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2>
-          Recensioni <span>Clienti</span>
-        </h2>
-      </div>
-      <div class="carousel-wrap ">
-        <div class="owl-carousel client_owl-carousel">
-       
-          <div class="item">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/client1" alt="" class="box-img">
-              </div>
-              <div class="detail-box">
-                <div class="client_id">
-                  <div class="client_info">
-                    <h6>
-                      Fitness
-                    </h6>
-                    <p>
-                      Italy
-                    </p>
-                  </div>
-                  <i class="fa fa-quote-left" aria-hidden="true"></i>
-                </div>
-                <p>
-                  ""
-                </div>
-            </div>
-          </div>
+          <a href="#contact" class="btn-primary-modern">Scopri di più</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- end client section -->
-
-
-  <!-- info section -->
-
-  <section class="info_section layout_padding2">
+  <!-- Why Choose Us Section -->
+  <section id="why" class="section">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-3 info_col">
-          <div class="info_contact">
-            <h4>
-              Contatti
-            </h4>
-            <div class="contact_link_box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  Location
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  Call +01 1234567890
-                </span>
-              </a>
-              <a href="mailto:info@onexus.it">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  davide.sp0@proton.me
-                </span>
-              </a>
+      <div class="section-title" data-aos="fade-up">
+        <h2>Perché <span style="color: var(--primary-color);">Sceglierci</span></h2>
+        <p>I nostri punti di forza che ci distinguono nel mercato delle soluzioni digitali.</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-users-cog"></i>
             </div>
+            <h5>Team Esperto</h5>
+            <p>Professionisti qualificati con anni di esperienza nel settore tecnologico.</p>
           </div>
-          <div class="info_social">
-            <a href="">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/davide-spatola-169524204?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.instagram.com/rigel.ware?igsh=NGJ6dmprcGNseWM0">
-              <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-          </div>
-  
-
+        </div>
         
-        </div>
-        <div class="col-md-6 col-lg-3 info_col">
-          <div class="info_detail">
-            <h4>
-              Info
-            </h4>
-            <p>
-              Referenze:
-              <a href="https://www.disit.uniupo.it/it"> Università del Piemonte Orientale  
-                </a>        
-           </p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-2 mx-auto info_col">
-          <div class="info_link_box">
-            <h4>
-              Collegamenti
-            </h4>
-            <div class="info_links">
-              <a class="active" href="index.html">
-                Home
-              </a>
-              <a class="" href="about.html">
-                Chi Siamo
-              </a>
-              <a class="" href="service.html">
-                Servizi
-              </a>
-              <a class="" href="why.html">
-                Perchè sceglierci
-              </a>
-              <a class="" href="team.html">
-                Team
-              </a>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-rocket"></i>
             </div>
+            <h5>Innovazione</h5>
+            <p>Utilizziamo sempre le tecnologie più moderne e innovative del mercato.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3 info_col ">
-          <h4>
-            Email
-          </h4>
-          <form action="mailto:info@onexus.it">
-            <!--input type="text" placeholder="Enter email" /-->
-            <button type="submit" href="mailto:info@onexus.it">
-              Scrivici
-            </button>
-
-          </form>
+        
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h5>Affidabilità</h5>
+            <p>Rispettiamo sempre i tempi di consegna e manteniamo gli standard qualitativi più elevati.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h5>Supporto 24/7</h5>
+            <p>Il nostro team è sempre disponibile per supporto e assistenza tecnica.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- end info section -->
-
-  <!-- footer section -->
-  <section class="footer_section">
+  <!-- Team Section -->
+  <section id="team" class="section about-section">
     <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://onexus.it/">Onexus <i><img src="images/logo.jpg" class="icon fas fa-image"></i></a>
-
-      </p>
+      <div class="section-title" data-aos="fade-up">
+        <h2>Il nostro <span style="color: var(--primary-color);">Team</span></h2>
+        <p>Conosci i professionisti che lavorano per trasformare le tue idee in realtà.</p>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-card">
+            <div class="team-image">
+              <div style="background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); height: 250px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-user" style="font-size: 4rem; color: white; opacity: 0.8;"></i>
+              </div>
+            </div>
+            <div class="team-info">
+              <h5>Davide Spatola</h5>
+              <p>Computer Scientist & Founder</p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/davide-spatola-169524204" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/rigel.ware" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  <!-- footer section -->
 
-  <!-- jQery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Contatta<span style="color: var(--primary-color);">ci</span></h2>
+        <p>Siamo pronti ad ascoltare le tue idee e trasformarle in soluzioni digitali innovative.</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h5>Email</h5>
+            <p><a href="mailto:info@onexus.it" style="color: var(--primary-color);">info@onexus.it</a></p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h5>Formazione</h5>
+            <p><a href="https://www.disit.uniupo.it/it" target="_blank" style="color: var(--primary-color);">Università del Piemonte Orientale</a></p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h5>Website</h5>
+            <p><a href="https://www.onexus.it" target="_blank" style="color: var(--primary-color);">onexus.it</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5>Onexus</h5>
+          <p>Sviluppiamo soluzioni digitali innovative per far crescere il tuo business. Il nostro team è specializzato in tecnologie all'avanguardia e metodologie moderne.</p>
+          <div class="social-links mt-3">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/davide-spatola-169524204"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/rigel.ware"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Servizi</a></li>
+            <li><a href="#about">Chi Siamo</a></li>
+            <li><a href="#why">Perché Sceglierci</a></li>
+            <li><a href="#team">Team</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-3">
+          <h5>Servizi</h5>
+          <ul class="list-unstyled">
+            <li><a href="#services">Sviluppo Web</a></li>
+            <li><a href="#services">App Mobile</a></li>
+            <li><a href="#services">E-commerce</a></li>
+            <li><a href="#services">Software Gestionali</a></li>
+            <li><a href="#services">Cloud Solutions</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-3">
+          <h5>Contatti</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-envelope me-2"></i> <a href="mailto:info@onexus.it">info@onexus.it</a></li>
+            <li><i class="fas fa-globe me-2"></i> <a href="https://www.onexus.it">onexus.it</a></li>
+            <li><i class="fas fa-graduation-cap me-2"></i> <a href="https://www.disit.uniupo.it/it">UPO - Informatica</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Onexus. Tutti i diritti riservati. Sviluppato con ❤️ in Italia.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Active nav link highlighting
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Add loading animation
+    window.addEventListener('load', function() {
+      document.body.classList.add('loaded');
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.service-card, .why-card, .team-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+
+    // Parallax effect for hero section
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+    });
+
+    // Counter animation for stats (if you want to add them later)
+    function animateCounter(element, start, end, duration) {
+      let startTime = null;
+      
+      function step(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        element.textContent = value;
+        
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      
+      requestAnimationFrame(step);
+    }
+
+    // Form validation and submission (for future contact form)
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Mobile menu enhancement
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggler) {
+      navbarToggler.addEventListener('click', function() {
+        this.classList.toggle('active');
+      });
+    }
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function() {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        
+        if (navbarCollapse.classList.contains('show')) {
+          navbarCollapse.classList.remove('show');
+          navbarToggler.classList.remove('active');
+        }
+      });
+    });
+
+    // Preloader (optional)
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 300);
+      }
+    });
   </script>
-  <!-- bootstrap js -->
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <!-- owl slider -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <!-- custom js -->
-  <script type="text/javascript" src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-  <!-- End Google Map -->
 
 </body>
-
-
 </html>
-
-
